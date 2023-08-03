@@ -174,6 +174,8 @@ monogatari.assets ('sounds', {
 	'wind_winter': 'wind_winter.mp3',
 	'bird': 'bird.mp3',
 	'footsteps': 'footsteps.mp3',
+	'factory_bell': 'factory_bell.mp3',
+	'ring_telegraph': 'ring_telegraph.mp3',
 	
 });
 
