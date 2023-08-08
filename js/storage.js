@@ -23,6 +23,18 @@ var textBoxE6 = `
 	margin-bottom: 27px;
 `;
 
+var textBoxE3 = `
+	color: #ffffff;
+	background: #241111e0;
+	border-top-style: solid;
+	border-color: #F7AB01;
+	border-width: 10px;
+	max-width: 740px;
+	align-self: center;
+	border-style: double;
+	margin-bottom: 27px;
+`;
+
 // Dynamic TextBox CSS
 function setTextBoxCSS(cssString) {
 	// Get the element

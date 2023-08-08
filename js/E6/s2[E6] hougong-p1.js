@@ -53,7 +53,7 @@ monogatari.action ('message').messages ({
       title: '结局：重蹈覆辙',
       subtitle: '命运给了你第二次机会，但你还是没能逃出帝国写给你的终局。',
       body: `
-        <p>（如果能再来一次的话……点击主菜单“故事线”重新从前一节点开始）</p>
+        <p>（如果能再来一次的话……点击主菜单“故事线”相应节点重新开始）</p>
         <img src='./assets/gallery/E6_end_brick.png' width="40">
 
       `
@@ -64,7 +64,7 @@ monogatari.action ('message').messages ({
     subtitle: '拒绝是你最后的尊严。',
     body: `
       <p>你成功摆脱了繁文缛节的束缚。然而，宫中其余的姐妹们又命运如何呢？她们并不一定都能如你一般超然物外，最终脱离苦海。</p>
-      <p>（如果能再来一次的话……点击主菜单“故事线”重新从前一节点开始）</p>
+      <p>（如果能再来一次的话……点击主菜单“故事线”相应节点重新开始）</p>
       <img src='./assets/gallery/E6_end_hermit.png' width="40">
 
     `
@@ -216,7 +216,7 @@ monogatari.characters ({
 })
 
  monogatari.script ({
-    /**
+  /**
 	 * ====================================
 	 *【E60-BE】E6-0剧情如下
 	 * ====================================
@@ -289,6 +289,93 @@ monogatari.characters ({
     's 光团越来越大，吞没世界，你眼睁睁看着所有事物扭成一束光——',
     's ——电光火石之间，新的世界铺陈开来。', */
     // 先行版剧情开场
+
+
+
+    //E3测试选项临时
+    {'Function':{
+      'Apply': function () {
+        setTextBoxCSS(textBoxDefault);
+      },
+
+      'Reverse': function () {
+        setTextBoxCSS(textBoxE6);
+      }   
+    }},
+
+    {'Choice':{
+      'Dialog': 's 请点击相应选项跳转进行测试',
+      'une': {
+          'Text': '新日线开头【S0】',
+          'Do': 'jump E3-S0',
+      },
+      'deux': {
+          'Text': '第一次选择不逃跑【S2-1】',
+          'Do': 'jump E3-S2-1',
+      },
+      'troix': {
+        'Text': '第一次选择逃跑【S2-2】',
+        'Do': 'jump E3-S2-2',
+      },
+     'quatre': {
+      'Text': '被抓后继续逃跑【S2-2-4，BE黑夜茫然】',
+      'Do': 'jump E3-S2-2-4',
+      },
+      'cinq': {
+        'Text': '被抓后不跑了【S2-2-3，BE高墙】',
+        'Do': 'jump E3-S2-2-3',
+      },
+      'six': {
+        'Text': '第一次选择举报冈田【S2-3，BE你的功绩无人知晓/BE背叛者的徽章】',
+        'Do': 'jump E3-S2-3',
+      },
+
+      'sept': {
+        'Text': '下一页',
+        'Do': 'jump test-next-page',
+      },
+    },},
+  ],
+    'test-next-page':[
+      {'Choice':{
+        'Dialog': 's 请点击相应选项跳转进行测试',
+        'une': {
+            'Text': '第一次维修入选【S2-1-4，可达第二次维修入选+BE伊卡洛斯/BE化身扭曲】',
+            'Do': 'jump E3-repair-selected',
+        },
+
+        'duex': {
+          'Text': '第二次维修不能去【S3-1】',
+          'Do': 'jump E3-repair-not-selected-2',
+        },
+
+        'trois': {
+          'Text': '第二次跑路选择点【S4-1，可达BE畸变日轮/BE化身扭曲/BE日之蚀】',
+          'Do': 'jump E3-S4-1',
+        },
+        
+       'quatre': {
+        'Text': '第二次跑路去世【BE长夜冰雕】',
+        'Do': 'jump E3-BElight',
+        },
+
+        'cinq': {
+          'Text': '第二次跑路找到热源【S6-1，可（随机）达BE化身扭曲/HE归乡】',
+          'Do': 'jump E3-S6-1',
+        },
+        'six': {
+          'Text': '我想玩一会儿后宫线',
+          'Do': 'jump E60-BE-test',
+        },
+      },},
+    ],
+  
+
+  'E60-BE-test':[
+  // 测试临时代码内容结束
+
+
+
     'show scene laptop with fadeIn duration 3s',
     'play sound bird',
     's 某个温暖的午后，你百无聊赖地打开笔记本电脑，盯着文档中闪烁的光标发呆。',

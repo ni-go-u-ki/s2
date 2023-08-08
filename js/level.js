@@ -105,7 +105,7 @@ function goToLevelScreen(){
 }
 
 function enterLevel(levelId){
-    if(localStorage.getItem(levelId) =='1')
+    //if(localStorage.getItem(levelId) =='1')
     {
         monogatari.global ('playing', true);
         monogatari.showScreen ('game');
@@ -136,6 +136,7 @@ function enterLevel(levelId){
     }
 }
 
+
 function addArrows(){
     // Set up the SVG container
     const svg = d3.create("svg")
@@ -158,7 +159,7 @@ function addArrows(){
                     .attr("y2", `${nextY- buttonHeightRatio/2}%`)
                     .attr("stroke", "grey")
                     .attr("stroke-width", 2)
-                    .attr("marker-end", "url(#arrowhead)");
+                    //.attr("marker-end", "url(#arrowhead)");
             })
         }
     });

@@ -12,15 +12,6 @@
 
 // Define the messages used in the game.
 monogatari.action ('message').messages ({
-	'Day-start': {
-		title: '第{{player.day}}天',
-		subtitle: '看看你的状态和物品如何',
-		body: `
-			<p>健康={{player.health}} 精神={{player.sanity}} 学业={{player.study}}</p>
-			<p>物资x{{player.food}}</p>
-			<p>记得第11天要考试，届时学业值要大于零哦~</p>
-		`
-	},
 
 });
 
@@ -33,15 +24,12 @@ monogatari.action ('notification').notifications ({
 	}
 });
 
-// Define the Particles JS Configurations used in the game
-monogatari.action ('particles').particles ({
-
-});
 
 // Define the canvas objects used in the game
 monogatari.action ('canvas').objects ({
 
 });
+
 
 // Credits of the people involved in the creation of this awesome game
 monogatari.configuration ('credits', {
@@ -144,6 +132,10 @@ monogatari.assets ('music', {
 	'good_ending': 'good_ending.mp3',
 	'bad_ending': 'bad_ending.mp3',
 	'normal_ending': 'normal_ending.mp3',
+	'E3_peaceful_industry': 'E3_peaceful_industry.mp3',
+	'E3_steampunk_cult': 'E3_steampunk_cult.mp3',
+	'E3_steel': 'E3_steel.mp3',
+	'E3_a_cut_in_love' : 'E3_a_cut_in_love.mp3'
 	
 });
 
@@ -176,7 +168,10 @@ monogatari.assets ('sounds', {
 	'footsteps': 'footsteps.mp3',
 	'factory_bell': 'factory_bell.mp3',
 	'ring_telegraph': 'ring_telegraph.mp3',
-	
+	'ding': 'ding.mp3',
+	'door_slam': 'door_slam.mp3',
+	'morse_code': 'morse_code.mp3',
+	'knock_metal': 'knock_metal.mp3'
 });
 
 // Define the videos used in the game.
@@ -237,6 +232,80 @@ monogatari.characters ({
 
 });
 
+// Define the Particles JS Configurations used in the game
+monogatari.action ('particles').particles ({
+    // 雪花效果
+    'snow': {
+		'particles': {
+			'number': {
+				'value': 400,
+				'density': {
+					'enable': true,
+					'value_area': 800
+				}
+			},
+			'color': {
+				'value': '#fff'
+			},
+			'shape': {
+				'type': 'circle',
+				'stroke': {
+					'width': 0,
+					'color': '#000000'
+				},
+				'polygon': {
+					'nb_sides': 5
+				},
+				'image': {
+					'src': 'img\/github.svg',
+					'width': 100,
+					'height': 100
+				}
+			},
+			'opacity': {
+				'value': 0.5,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 1,
+					'opacity_min': 0.1,
+					'sync': false
+				}
+			},
+			'size': {
+				'value': 10,
+				'random': true,
+				'anim': {
+					'enable': false,
+					'speed': 40,
+					'size_min': 0.1,
+					'sync': false
+				}
+			},
+			'line_linked': {
+				'enable': false,
+				'distance': 500,
+				'color': '#ffffff',
+				'opacity': 0.4,
+				'width': 2
+			},
+			'move': {
+				'enable': true,
+				'speed': 6,
+				'direction': 'bottom',
+				'random': false,
+				'straight': false,
+				'out_mode': 'out',
+				'bounce': false,
+				'attract': {
+					'enable': false,
+					'rotateX': 600,
+					'rotateY': 1200
+				}
+			}
+		},
+    },
+})
 
 /**
  * =======================================
