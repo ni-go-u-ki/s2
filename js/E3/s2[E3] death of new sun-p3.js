@@ -252,7 +252,7 @@
 	 * ====================================
 	 **/
     'E3-BEtwisted_sun':[
-        'play music E3_steel loop with fade 7 volume 50',
+        'play music E3_steel loop with fade 3 volume 50',
         'show scene #000000 with duration 7s',
         's 突然之间，仿佛自极远处传来轰鸣，',
         'show scene #000000',
@@ -264,7 +264,7 @@
         'play sound notification',
         'show message E3_cgunlock4',
         's 许久，恢复视野的你抬起头，却只见那永恒散发着光与热的日轮一点点黯淡下去，',
-        'stop music E3_steel with fade 7',
+        'stop music E3_steel with fade 3',
         's 黑暗笼罩的厂区里，响起了一阵阵如潮般“圣哉！”的狂热赞颂。',
         'play sound notification',
         'show message Ending-E3twisted_sun',
@@ -303,7 +303,7 @@
 	 **/
     'E3-BEsun_death':[
         'show scene E3_dorm',
-        'play music E3_peaceful_industry with fade 7 loop volume 50',
+        'play music E3_peaceful_industry with fade 3 loop volume 50',
         's 又不知过了多少日子，你在房间里醒来，喝光了最后的饮用水，珍而重之地将最后一点饼干屑舔干净，然后，拿起齿轮枪走出门。',
         //背景换成走廊
         'show scene corridor_day with fadeIn duration 3s',
@@ -561,21 +561,20 @@
         's 你紧赶几步，鼓起力气拖着疲惫的身体来到了村口。',
         'db 你是……？',
         //进行一个50%概率判断，一半概率三个选项都是“撕了他”，一半概率是正常的打招呼选项
-        // {
-		// 	'Conditional': {
-		// 		'Condition': function(){
-		// 			const result = Math.random();
-		// 			if(result <= 0.5) {
-		// 				return 'homechange';
-		// 			} else {
-		// 				return 'homehello';
-		// 			}
-		// 		},
-		// 		'homechange': 'jump E3-change',
-		// 		'homehello': 'jump E3-hello',
-		// 	}
-		// },
-        'jump E3-hello'
+        {
+			'Conditional': {
+				'Condition': function(){
+					const result = Math.random();
+					if(result <= 0.5) {
+						return 'homechange';
+					} else {
+						return 'homehello';
+					}
+				},
+				'homechange': 'jump E3-change',
+				'homehello': 'jump E3-hello',
+			}
+		},
     ],
 
     'E3-change':[
@@ -661,9 +660,9 @@
         's 你猛然起身，挣扎着推开被子扑到窗边，',
         's 远方天边，那曾经照彻冰原的新日之光正在迅速黯淡下去；',
         's 但同时你看到，一队穿着崭新工装的人正在启程，',
+        'play music normal_ending with fade 5',
         's 窗外传来他们充满希望的声音，正如当初满怀希望的你。',
         'show scene ice_day with fadeIn duration 3s',
-        'play music normal_ending with fade 5',
         's “去大厂！去新日！”',
         's “新日！新日好啊，新日工厂里的人都是吃香的喝辣的，有油膏抽，还有新鲜水果吃！但是万一人家看不上咱们怎么办？”',
         's “哎，咱们好好表现。管道什么的咱们平时没少修理！他们肯定要咱们。”',
@@ -687,6 +686,15 @@
     * ====================================
     **/
     'E3-S':[
+        {'Function':{
+            'Apply': function () {
+              setTextBoxCSS(textBoxDefault);
+            },
+      
+            'Reverse': function () {
+              setTextBoxCSS(textBoxE3);
+            }   
+        }},
         'play sound typing',
         'nvl <p></p>-赞颂的蒸汽人偶-',
         'play sound typing',
@@ -765,6 +773,8 @@
         'nvl “……”',
         'nvl “喂？”',
         'nvl “圣哉！圣哉！圣哉！圣哉！圣哉！圣哉！圣哉！……”',
+        'play sound ring_telegraph',
+        'centered',
         'end'
     ],
 })

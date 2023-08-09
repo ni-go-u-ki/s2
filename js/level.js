@@ -105,7 +105,7 @@ function goToLevelScreen(){
 }
 
 function enterLevel(levelId){
-    //if(localStorage.getItem(levelId) =='1')
+    if(localStorage.getItem(levelId) =='1')
     {
         monogatari.global ('playing', true);
         monogatari.showScreen ('game');

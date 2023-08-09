@@ -397,27 +397,26 @@ monogatari.script({
 	 * ====================================
 	 **/
     'E3-S1-1':[
-        {'Function':{
-            'Apply': function () {
-              setTextBoxCSS(textBoxE3);
-            },
-      
-            'Reverse': function () {
-              setTextBoxCSS(textBoxDefault);
-            }   
-        }},
         'play sound bird',
         'show scene E3_dorm with fadeIn duration 3s',
         'centered',
+        {'Function':{
+          'Apply': function () {
+            setTextBoxCSS(textBoxE3);
+          },
+    
+          'Reverse': function () {
+            setTextBoxCSS(textBoxDefault);
+          }   
+        }},
         's 再次睁开眼的时候，窗帘已经被冈田拉开，明亮的新日之光照了进来。',
         'show character a bored',
         'a 快起床了！再晚就该赶不上工厂的早饭时间了。',
         'i 马上就好！',
         's 你揉揉惺忪的睡眼，快速收拾好自己，换上工装裤。',
-        'centered',
         'show scene corridor_day with fadeIn duration 3s',
         's 然而你刚走出房间，就突然听见一声惨叫。',
-        'play music E3_steampunk_cult with loop fade 7 volume 50',
+        'play music E3_steampunk_cult with loop fade 3 volume 50',
         'gr 啊啊啊啊啊！',
         'show character a worried',
         'i 怎么回事？',
@@ -489,7 +488,7 @@ monogatari.script({
         'show scene #000000',
         's 你和冈田边说边向宿舍楼外走去，步入灿烂的日光里。',
         'centered',
-        'play music E3_steel with loop fade 7 volume 50',
+        'play music E3_steel with loop fade 3 volume 50',
         'show scene factory with fadeIn duration 3s',
         'centered',
         's 漆黑的天穹下，层层高楼与烟囱之后，庞大的新日傲然矗立，无时无刻在产出着庞大的能量，温暖整个陷入黑暗的世界。',
@@ -498,14 +497,13 @@ monogatari.script({
         'i ……',
         'i There is only the Sun, and it is our shield and protector. <br>唯赖新日，苍生倚庇。',
         'a There is only the Sun, and it is our shield and protector. <br>唯赖新日，苍生倚庇。',
-        'stop music E3_steel with fade 5',
+        'stop music E3_steel with fade 3',
         'centered',
         //感觉这里要不多加两句世界观的铺垫？
         //这里排成上面英文下面中文的两行一起显示（一点个人趣味，不行的话就只留下中文）
         'show scene #000000',
-        'play music crowd with loop fade 3',
+        'play music crowd',
         's 你和冈田念诵完祷词，默默转身走入拥挤的食堂争抢早饭。',
-        'stop music crowd with fade 3',
         's ……',
         's 一整天单调且繁重的工作很快就结束了。',
         'show scene E3_dorm with fadeIn duration 3s',
@@ -522,9 +520,8 @@ monogatari.script({
 	 **/
     'E3-S1-2':[
         'show scene factory with fadeIn duration 3s',
-        'play music crowd with loop fade 3',
+        'play music crowd',
         's 第二天，你重复着和昨天一样一成不变的日程，但在食堂吃早饭的时候，你无意间听到隔壁桌的窃窃私语。',
-        'stop music crowd with fade 3',
         'show character la smoking',
         'la 老弟，哥跟你说个厉害的。想听不？',
         'hide character la',
@@ -926,7 +923,7 @@ monogatari.script({
         'a 他好像不来了，就咱们两个。',
         'i 嗯……那走吧。',
         'hide character a',
-        'play music E3_peaceful_industry with loop fade 7 volume 50',
+        'play music E3_peaceful_industry with loop fade 3 volume 50',
         'centered',
         'play sound footsteps',
         'show scene factory with fadeIn duration 3s',
@@ -1007,7 +1004,7 @@ monogatari.script({
         'i ……',
         'i ……欸你看，窗外是什么！',
         'centered',
-        'play music E3_steampunk_cult with fade 7 loop volume 50',
+        'play music E3_steampunk_cult with fade 3 loop volume 50',
         'show scene wall with fadeIn duration 3s',
         's 你们向窗外望去，只见新日的光芒将宿舍楼的影子拉得很长，但十几层楼高的影子中断在了高墙的脚下。',
         's 钢铁铸成的墙壁拔地而起，无数齿轮与管线攀附其上。',
