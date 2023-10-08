@@ -209,14 +209,23 @@ monogatari.assets ('gallery', {
 
 monogatari.assets ('scenes', {
   'factory': 'E3_factory.png',
+  'factory_bright': 'E3_factory_bright.png',
   'E3_dorm': 'E3_dorm.png',
+  'E3_dorm_bright': 'E3_dorm_bright.png',
   'corridor_day': 'E3_corridor_day.png',
+  'corridor_day_bright': 'E3_corridor_day_bright.png',
   'corridor_night': 'E3_corridor_night.png',
+  'corridor_night_bright': 'E3_corridor_night_bright.png',
   'ice_day': 'E3_ice_day.png',
+  'ice_day_bright': 'E3_ice_day_bright.png',
   'ice_night': 'E3_ice_night.png',
+  'ice_night_bright': 'E3_ice_night_bright.png',
   'inside': 'E3_inside.png',
+  'inside_bright': 'E3_inside_bright.png',
   'inside2': 'E3_inside2.png',
+  'inside2_bright': 'E3_inside2_bright.png',
   'village': 'E3_village.png',
+  'village_bright': 'E3_village_bright.png',
   'wall': 'E3_wall.png',
 }),
 
@@ -349,7 +358,7 @@ monogatari.script({
         's 在无人知晓的梦境深处，黑暗逐渐幻化出了色彩——',
         //ito：之后转写的时候记得把全角单符号替换为半角符号，像这样：' ',
         //宿舍背景
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         'play music E3_peaceful_industry with loop fade 3 volume 50',
         'centered',
         {'Function':{
@@ -363,7 +372,7 @@ monogatari.script({
         }},
         's 你在房间里醒来，喝光了最后的饮用水，珍而重之地将最后一点饼干屑舔干净，然后，拿起齿轮枪走出门。',
         //背景换成走廊
-        'show scene corridor_day with fadeIn duration 3s',
+        'show scene corridor_day_bright with fadeIn duration 3s',
         's 门外一片寂静，新日的光从走廊涂黑窗户的裂隙中透入，但是没有人去修补。',
         's 你手握齿轮枪，蹑手蹑脚地经过走廊中的一扇扇房门。',
         's 楼梯间就在前方，只要到了那里，你就能得到补给。',
@@ -398,7 +407,7 @@ monogatari.script({
 	 **/
     'E3-S1-1':[
         'play sound bird',
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         'centered',
         {'Function':{
           'Apply': function () {
@@ -410,14 +419,16 @@ monogatari.script({
           }   
         }},
         's 再次睁开眼的时候，窗帘已经被冈田拉开，明亮的新日之光照了进来。',
+        'show scene E3_dorm',
         'show character a bored',
         'a 快起床了！再晚就该赶不上工厂的早饭时间了。',
         'i 马上就好！',
         's 你揉揉惺忪的睡眼，快速收拾好自己，换上工装裤。',
-        'show scene corridor_day with fadeIn duration 3s',
+        'show scene corridor_day_bright with fadeIn duration 3s',
         's 然而你刚走出房间，就突然听见一声惨叫。',
         'play music E3_steampunk_cult with loop fade 3 volume 50',
         'gr 啊啊啊啊啊！',
+        'show scene corridor_day',
         'show character a worried',
         'i 怎么回事？',
         'i 谁在叫？',
@@ -489,7 +500,7 @@ monogatari.script({
         's 你和冈田边说边向宿舍楼外走去，步入灿烂的日光里。',
         'centered',
         'play music E3_steel with loop fade 3 volume 50',
-        'show scene factory with fadeIn duration 3s',
+        'show scene factory_bright with fadeIn duration 3s',
         'centered',
         's 漆黑的天穹下，层层高楼与烟囱之后，庞大的新日傲然矗立，无时无刻在产出着庞大的能量，温暖整个陷入黑暗的世界。',
         's 你们所处的这个巨大厂区，蒸汽的轰鸣与钢铁的击打声终日不绝于耳，正是保障新日运作的先锋前哨，大名鼎鼎的新日工厂。',
@@ -506,7 +517,7 @@ monogatari.script({
         's 你和冈田念诵完祷词，默默转身走入拥挤的食堂争抢早饭。',
         's ……',
         's 一整天单调且繁重的工作很快就结束了。',
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         's 你带着一身的疲惫回到宿舍，很快陷入了睡眠。',
         'show scene #000000',
         's ……',
@@ -519,9 +530,10 @@ monogatari.script({
 	 * ====================================
 	 **/
     'E3-S1-2':[
-        'show scene factory with fadeIn duration 3s',
+        'show scene factory_bright with fadeIn duration 3s',
         'play music crowd',
         's 第二天，你重复着和昨天一样一成不变的日程，但在食堂吃早饭的时候，你无意间听到隔壁桌的窃窃私语。',
+        'show scene factory',
         'show character la smoking',
         'la 老弟，哥跟你说个厉害的。想听不？',
         'hide character la',
@@ -867,6 +879,7 @@ monogatari.script({
         'play sound knock_metal',
         'show scene E3_dorm',
         'i 你干嘛，什么玩意儿？吵死了！',
+        'show character a bored',
         'a 醒醒，逃跑用的家伙我搞到了，从工位上顺了把钳子。',
         'i 钳，钳子……？',
         'i 刚刚竟然差点睡着……我是干太多活儿，脑子瓦特了？',

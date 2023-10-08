@@ -135,7 +135,10 @@ monogatari.assets ('music', {
 	'E3_peaceful_industry': 'E3_peaceful_industry.mp3',
 	'E3_steampunk_cult': 'E3_steampunk_cult.mp3',
 	'E3_steel': 'E3_steel.mp3',
-	'E3_a_cut_in_love' : 'E3_a_cut_in_love.mp3'
+	'E3_a_cut_in_love' : 'E3_a_cut_in_love.mp3',
+	'E2_happy' : 'E2_happy.mp3',
+	'E2_danger' : 'E2_danger.mp3',
+	'E2_burning' : 'E2_burning.mp3',
 	
 });
 
