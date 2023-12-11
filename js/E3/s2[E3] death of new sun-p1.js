@@ -113,7 +113,7 @@ monogatari.action ('message').messages ({
         title: '结局：归乡',
         subtitle: 'Misty taste of moonshine, teardrops in my eyes.',
         body: `
-          <p>你历经千难万险，逃出了工厂危机四伏的甬道，熬过了严防死守的封闭，躲过了无处不在的扭曲，挨过了冰原的苦寒，终于平安回到了家。</p>
+          <p>你历经千难万险，逃出了工厂危机四伏的甬道，熬过了严防死守的封闭，躲过了无处不在的扭曲，捱过了冰原的苦寒，终于平安回到了家。</p>
           <p>未来如何？你并不知道答案。但是无论如何，这个世界仍在运转，你祈祷明天太阳升起，你仍能守护你所珍视的东西。</p>
 
         `
@@ -623,19 +623,20 @@ monogatari.script({
 	 **/
     'E3-S1-3':[
         's ……',
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         's 结束了又一天的工作，你拖着疲惫的步伐回到宿舍，很快就进入了梦乡。',
         'show scene #000000',
         's ……',
         //宿舍背景
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         's 但或许是晚上食堂的菜太咸了，你很快就被尿憋醒。',
         's 你不情不愿地从床上起身，准备去厕所。',
         //太咸了所以水喝多了？
-        'show scene corridor_night with fadeIn duration 3s',
+        'show scene corridor_night_bright with fadeIn duration 3s',
         'i 冷死了……',
         's 你打开房门，披着大衣穿过走廊。走廊的尽头，新日永不消失的光芒正隐隐透过窗户照射进来。',
         //走廊背景
+        'show scene corridor_night_bright',
         'show character la smoking',
         'la 嘶……',
         'hide character la',
@@ -760,7 +761,7 @@ monogatari.script({
         'a 咱们的室友，还有同工区的藤本他们好像也有要跑的意思。明天要是咱们一起跑，人多的话心也不慌。',
         'show scene #000000',
         's 当夜，你躺在床上辗转反侧，脑袋里一半是工作与能源配额、你躺在病床上的父亲，一半是走廊上怪物向你扑来的场景，翻来覆去地重复着。',
-        'show scene E3_dorm with fadeIn duration 3s',
+        'show scene E3_dorm_bright with fadeIn duration 3s',
         's 第二天上工时间快要到时，你做出了决定。',
         //插入选项，选择不逃跳转至2-1，逃跑跳转至2-2
         'play sound choices',
@@ -816,12 +817,12 @@ monogatari.script({
         's 你们快速洗漱完，收拾好简单的行装，和藤本他们汇合，然后向厂区大门的方向走去。',
         'centered',
         'play sound footsteps',
-        'show scene corridor_day with fadeIn duration 3s',
+        'show scene corridor_day_bright with fadeIn duration 3s',
         'centered',
         'play sound footsteps',
-        'show scene factory with fadeIn duration 3s',
+        'show scene factory_bright with fadeIn duration 3s',
         'centered',
-        'show scene ice_day with fadeIn duration 3s',
+        'show scene ice_day_bright with fadeIn duration 3s',
         'play sound footsteps',
         'centered',
         's 你们赶在上工之前来到了厂区的大门外。厚重的金属大门后方是无际的冰原，只能看到几辆运输车在冰雪中穿行。',

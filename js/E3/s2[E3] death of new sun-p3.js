@@ -664,7 +664,7 @@
         's 但同时你看到，一队穿着崭新工装的人正在启程，',
         'play music normal_ending with fade 5',
         's 窗外传来他们充满希望的声音，正如当初满怀希望的你。',
-        'show scene ice_day with fadeIn duration 3s',
+        'show scene ice_day_bright with fadeIn duration 3s',
         's “去大厂！去新日！”',
         's “新日！新日好啊，新日工厂里的人都是吃香的喝辣的，有油膏抽，还有新鲜水果吃！但是万一人家看不上咱们怎么办？”',
         's “哎，咱们好好表现。管道什么的咱们平时没少修理！他们肯定要咱们。”',

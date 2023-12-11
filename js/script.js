@@ -174,7 +174,11 @@ monogatari.assets ('sounds', {
 	'ding': 'ding.mp3',
 	'door_slam': 'door_slam.mp3',
 	'morse_code': 'morse_code.mp3',
-	'knock_metal': 'knock_metal.mp3'
+	'knock_metal': 'knock_metal.mp3',
+	'snore': 'snore.mp3',
+	'burning': 'burning.mp3',
+	'crowd_whisper': 'crowd_whisper.mp3',
+	'peeing': 'peeing.mp3',
 });
 
 // Define the videos used in the game.

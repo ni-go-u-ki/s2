@@ -290,7 +290,39 @@ monogatari.characters ({
     's ——电光火石之间，新的世界铺陈开来。', */
     // 先行版剧情开场
 
+    //E2测试临时
+    {'Choice':{
+      'Dialog': 's 请点击相应选项跳转进行测试',
+      'une': {
+          'Text': '火刑线开头【S0】',
+          'Do': 'jump E2-S0',
+      },
+      'deux': {
+          'Text': '第一次选择不逃跑【S2-1】',
+          'Do': 'jump E3-S2-1',
+      },
+      'troix': {
+        'Text': '第一次选择逃跑【S2-2】',
+        'Do': 'jump E3-S2-2',
+      },
+     'quatre': {
+      'Text': '被抓后继续逃跑【S2-2-4，BE黑夜茫然】',
+      'Do': 'jump E3-S2-2-4',
+      },
+      'cinq': {
+        'Text': '被抓后不跑了【S2-2-3，BE高墙】',
+        'Do': 'jump E3-S2-2-3',
+      },
+      'six': {
+        'Text': '第一次选择举报冈田【S2-3，BE你的功绩无人知晓/BE背叛者的徽章】',
+        'Do': 'jump E3-S2-3',
+      },
 
+      'sept': {
+        'Text': '下一页',
+        'Do': 'jump test-next-page',
+      },
+    },},
 
     //E3测试选项临时
     {'Function':{
