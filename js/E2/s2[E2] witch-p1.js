@@ -35,7 +35,7 @@ monogatari.action ('message').messages ({
   
     'Ending-E2leave_alone': {
         title: '结局：独自逃亡',
-        subtitle: '对已知命运的恐惧使你不顾一切地独自逃离。',
+        subtitle: '对已知命运的恐惧使你不顾一切地逃离。',
         body: `
           <p>然而，没有同伴的你能走多远？大火是否又会在未来的某刻降临？你并不清楚，只能祈祷隐秘和孤独继续做你的帮手。</p>
   
@@ -54,9 +54,9 @@ monogatari.action ('message').messages ({
   
     'Ending-E2repeat': {
       title: '结局：红，白，蓝',
-      subtitle: '旋转的天堂理发店。',
+      subtitle: '旋转不停的天堂理发店。',
       body: `
-        <p>你试图逃离，但最终在神殿光怪陆离的大厅之间迷失了路途，也许失败的种子早在此前的重蹈覆辙中埋下。</p>
+        <p>你试图独自逃离，最终在神殿光怪陆离的大厅之中迷失了路途，也许失败的种子早在此前的重蹈覆辙中埋下。</p>
         <p>（如果能再来一次的话……点击主菜单“故事线”相应节点重新开始）</p>
   
       `
@@ -64,9 +64,9 @@ monogatari.action ('message').messages ({
 
     'Ending-E2taken_away':{
       title: '结局：沉默的羔羊',
-      subtitle: '',
+      subtitle: 'Mary is a little lamb.',
       body: `
-        <p>你不出意料地被带走了。</p>
+        <p>你厌恶现状，却又不敢违抗现状，最终不出意料地被带去了无人知晓的地方。</p>
         <p>（如果能再来一次的话……点击主菜单“故事线”相应节点重新开始）</p>
   
       `
@@ -82,11 +82,11 @@ monogatari.action ('message').messages ({
     },
 
     'Ending-E2HE':{
-      title: '结局：',
-      subtitle: '',
+      title: '结局：燃烧的东方',
+      subtitle: '东方升起了烈火，也升起了太阳。',
       body: `
-        <p></p>
-        <p></p>
+        <p>你们彼此信任、互相支持，最终在火山的烈焰吞没一切之前逃离了神殿。</p>
+        <p>也许未来大地还要流泪又流血，但太阳也还会升起，一切可能尚存。</p>
       `
   },
 }),
@@ -338,6 +338,7 @@ monogatari.script({
       'centered 死亡人数：10',
       'play sound notification',
       'show message Ending-E2BE',
+      'centered',
       'jump E2-S1-1',
       //画面变暗
       //画面中央显示：【死亡人数：10】
@@ -890,7 +891,6 @@ monogatari.script({
     's Adieu, Adieu.',
     'play sound notification',
     'show message Ending-E2leave_alone',
-    '【待跳转回现实时间线，从早就打探好的连接工厂库房的窄洞逃出小区，在外呆了三天，红码莫名其妙地消除了】',
     'end'
     //结局
     //跳转回【原时间线】，从早就打探好的连接工厂库房的窄洞逃出小区，在外呆了三天，红码莫名其妙地消除了。
