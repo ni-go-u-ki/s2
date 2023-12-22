@@ -183,7 +183,7 @@ monogatari.assets ('sounds', {
 
 // Define the videos used in the game.
 monogatari.assets ('videos', {
-
+	'E2_EVA': 'E2_EVA.mp4',
 });
 
 // Define the images used in the game.
