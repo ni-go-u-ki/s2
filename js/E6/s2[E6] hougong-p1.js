@@ -114,7 +114,7 @@ monogatari.assets ('scenes', {
 	'nucleic': 'E6_nucleic_acid_pavilion.png', //太监所验处阁
   'willow_spring': 'E6_willow_spring.png', // 宫墙柳（春）
   'willow_winter': 'E6_willow_winter.png', // 宫墙柳（冬）
-  'brick':'E6_brick.jpg', //宫墙
+  'brick':'E6_brick.png', //宫墙
   'bag': 'E6_window_bag.png',
   'nobag': 'E6_window_nobag.png',
   'farm': 'E6_farm.png',
@@ -405,9 +405,6 @@ monogatari.characters ({
 
   'E60-BE-test':[
   // 测试临时代码内容结束
-
-
-
     'show scene laptop with fadeIn duration 3s',
     'play sound bird',
     's 某个温暖的午后，你百无聊赖地打开笔记本电脑，盯着文档中闪烁的光标发呆。',

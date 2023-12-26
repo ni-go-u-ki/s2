@@ -139,6 +139,10 @@ monogatari.assets ('music', {
 	'E2_happy' : 'E2_happy.mp3',
 	'E2_danger' : 'E2_danger.mp3',
 	'E2_burning' : 'E2_burning.mp3',
+	'E6_daily': 'E6_daily.mp3',
+	'E6_suspend': 'E6_suspend.mp3',
+	'E6_moody': 'E6_moody.mp3',
+	
 	
 });
 
