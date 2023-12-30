@@ -72,6 +72,9 @@ const buttonHeightRatio = 15;
 class LevelScreen extends Monogatari.ScreenComponent {
 
     /**
+     * The setup is the first step of the Mounting cycle, all
+	 * operations required for the component's setup should be implemented here.
+     * 
      * The constructor is called when creating a new instance of the component
      * and it's the perfect place to setup everything you need.
      * 
@@ -92,6 +95,10 @@ class LevelScreen extends Monogatari.ScreenComponent {
      * to be used. Here is where you should bind events and setup the component
      * if necessary.
      * 
+     * bind - The binding is the second step of the Mounting cycle, all
+	 * operations related to event bindings or other sort of binding with the
+	 * HTML content generated in the setup phase should be implemented here.
+     * 
      * 本函数的作用是：
      * 在主界面“Start”按钮后面添加一个“Level”按钮
      * 点击“Level”按钮后，进入关卡选择界面
@@ -106,6 +113,17 @@ class LevelScreen extends Monogatari.ScreenComponent {
             }
         });
         // promise.resolve()是一个promise对象，表示异步操作的结束
+        return Promise.resolve ();
+    }
+
+    /**
+     * The initialization is the last step of the Mounting cycle,
+	 * all final operations should be implemented here.
+     * 
+     * 当游戏加载完毕后，给每个关卡按钮添加监听器
+     */
+    static init() {
+        addlevelBtnListener();
         return Promise.resolve ();
     }
 
@@ -209,10 +227,7 @@ function goToLevelScreen(){
     monogatari.showScreen ('level');
 }
 
-/**
- * 当游戏加载完毕后，给每个关卡按钮添加监听器
- */
-$_ready (() => {
+function addlevelBtnListener(){
     flowChartData[currentWorld].forEach((d, i) => {
         monogatari.registerListener (`${d.id}`, {
             callback: (event) => {
@@ -220,23 +235,26 @@ $_ready (() => {
             }
         });
     })
-})
+}
+
+function removelevelBtnListener(){
+    flowChartData[currentWorld].forEach((d, i) => {
+        monogatari.unregisterListener (`${d.id}`);
+    })
+}
+
 
 function levelBtnHandler(ButtonId){
     // 如果是世界按钮，就跳转到相应的世界
     if (ButtonId.startsWith("world-") && check_level(ButtonId)){
+        // remove old listeners
+        removelevelBtnListener();
         // set the current world
         currentWorld = ButtonId;
         // re-render the level screen
-        monogatari.showScreen('level');
-        // add listeners to the buttons
-        flowChartData[currentWorld].forEach((d, i) => {
-            monogatari.registerListener (`${d.id}`, {
-                callback: (event) => {
-                    levelBtnHandler(d.id)
-                }
-            });
-        })
+        monogatari.element().find (`[data-screen=level]`).get(0).forceRender();
+        // add new listeners
+        addlevelBtnListener();
     } 
     // else we transfer to the level
     else{
