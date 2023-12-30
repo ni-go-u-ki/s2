@@ -86,6 +86,10 @@ $_ready (() => {
 
 		// 解锁游戏开端
 		unlock_level('E60-BE');
+		unlock_level('world-main');
+
+		// Unlock this world only for testing
+		unlock_level('world-hougong');
 
 	});
 	

@@ -9,23 +9,37 @@ Author: Hirata
 **/
 
 /**
- * flowChartData是一个数组，里面存放了关卡按钮的显示设定
+ * flowChartData是一个数组，里面存放了关卡/世界按钮的显示设定
  * 
- * 每个关卡的数据包括：
+ * 每个关卡/世界的数据包括：
  * 1. x, y：关卡按钮的位置，是百分比单位
- * 2. id：关卡的id，需要与各个剧情脚本中unlock()函数里的字符串保持一致，否则关卡将无法正确解锁
- * 3. text：关卡的名字
- * 4. img：关卡按钮的图片，如果没有图片，就用""
- * 5. next：关卡的下一步，是一个数组，里面存放了下一步的关卡的id。如果没有下一步，就用null
+ * 2. id：两种选择
+ *      (1) 关卡的id，需要与各个剧情脚本中unlock()函数里的字符串保持一致，否则关卡将无法正确解锁
+ *      (2) 世界的id，需要以"world-"开头，同时与各个剧情脚本中unlock()函数里的字符串保持一致
+ * 3. text：关卡/世界的名字
+ * 4. img：关卡/世界按钮的图片，如果没有图片，就用""
+ * 5. next：关卡/世界的下一步，是一个数组，里面存放了下一步的id。如果没有下一步，就用null
  * 
  */
-const flowChartData = [
-    {x:50, y:10, id: "E60-BE", text: "混沌初开", img: "", next: ["level-E6-second"]},
-    {x:50, y:35, id: "level-E6-second", text: "宫墙绿柳红砂 2", img: "./assets/gallery/E6_end_brick.png", next: ["level-E6-brick", "level-E6-hermit", "level-E6-fire"]},
-    {x:23, y:60, id: "level-E6-brick", text: "重蹈覆辙", img: "./assets/gallery/E6_end_brick.png", next: null},
-    {x:50, y:60, id: "level-E6-hermit", text: "拒不配合", img: "./assets/gallery/E6_end_hermit.png", next: null},
-    {x:76, y:60, id: "level-E6-fire", text: "推翻太监", img: "./assets/gallery/E6_end_fire.png", next: null}
+const hougongData = [
+    {x:50, y:10, id: "world-main", text: "主世界", img: "", next: ["E60-BE"]},
+    {x:50, y:35, id: "E60-BE", text: "混沌初开", img: "", next: ["level-E6-second"]},
+    {x:50, y:60, id: "level-E6-second", text: "宫墙绿柳红砂 2", img: "./assets/gallery/E6_end_brick.png", next: ["level-E6-brick", "level-E6-hermit", "level-E6-fire"]},
+    {x:23, y:85, id: "level-E6-brick", text: "重蹈覆辙", img: "./assets/gallery/E6_end_brick.png", next: null},
+    {x:50, y:85, id: "level-E6-hermit", text: "拒不配合", img: "./assets/gallery/E6_end_hermit.png", next: null},
+    {x:76, y:85, id: "level-E6-fire", text: "推翻太监", img: "./assets/gallery/E6_end_fire.png", next: null}
 ];
+const mainWorldData = [
+    {x:50, y:10, id: "world-hougong", text: "后宫世界", img: "", next: ["level-E6-second"]},
+    {x:76, y:10, id: "world-sun", text: "新日世界", img: "", next: ["level-E6-second"]},
+    {x:50, y:35, id: "level-E6-second", text: "宫墙绿柳红砂 2", img: "./assets/gallery/E6_end_brick.png", next: null},
+];
+const flowChartData = {
+    "world-main": mainWorldData,
+    "world-hougong": hougongData
+}
+let currentWorld = "world-main";
+
 const buttonWidthRatio = 20;
 const buttonHeightRatio = 15;
 
@@ -136,7 +150,7 @@ class LevelScreen extends Monogatari.ScreenComponent {
 
         // 向storyHtml里面添加关卡按钮
         // 关卡按钮的数据在flowChartData里面
-        flowChartData.forEach((d, i) => {
+        flowChartData[currentWorld].forEach((d, i) => {
 
             // 判断关卡是否解锁
             if (check_level(d.id)){
@@ -190,23 +204,44 @@ class LevelScreen extends Monogatari.ScreenComponent {
 
 LevelScreen.tag = 'level-screen';
 
+function goToLevelScreen(){
+    monogatari.global('playing', false);
+    monogatari.showScreen ('level');
+}
+
 /**
  * 当游戏加载完毕后，给每个关卡按钮添加监听器
- * 当点击关卡按钮后，进入相应的关卡
  */
 $_ready (() => {
-    flowChartData.forEach((d, i) => {
+    flowChartData[currentWorld].forEach((d, i) => {
         monogatari.registerListener (`${d.id}`, {
             callback: (event) => {
-                enterLevel(d.id)
+                levelBtnHandler(d.id)
             }
         });
     })
 })
 
-function goToLevelScreen(){
-    monogatari.global('playing', false);
-    monogatari.showScreen ('level');
+function levelBtnHandler(ButtonId){
+    // 如果是世界按钮，就跳转到相应的世界
+    if (ButtonId.startsWith("world-") && check_level(ButtonId)){
+        // set the current world
+        currentWorld = ButtonId;
+        // re-render the level screen
+        monogatari.showScreen('level');
+        // add listeners to the buttons
+        flowChartData[currentWorld].forEach((d, i) => {
+            monogatari.registerListener (`${d.id}`, {
+                callback: (event) => {
+                    levelBtnHandler(d.id)
+                }
+            });
+        })
+    } 
+    // else we transfer to the level
+    else{
+        enterLevel(ButtonId);
+    }
 }
 
 /**
@@ -262,12 +297,12 @@ function addArrows(){
         .attr("width", "100%")
         .attr("height", window.innerHeight);
 
-    flowChartData.forEach((d, i) => {
+    flowChartData[currentWorld].forEach((d, i) => {
         // 如果关卡有下一个关卡，就画出连线
         if (d.next) {
             d.next.forEach((nextTarget, k) => {
 
-                const nextNode = flowChartData.find(node => node.id === nextTarget);
+                const nextNode = flowChartData[currentWorld].find(node => node.id === nextTarget);
                 const nextX = nextNode.x;
                 const nextY = nextNode.y;
 

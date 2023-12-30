@@ -135,5 +135,5 @@ function lock_level(level){
 }
 
 function check_level(level){
-    return localStorage.getItem(level);
+    return localStorage.getItem(level) == 1;
 }
